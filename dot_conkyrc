@@ -1,0 +1,81 @@
+conky = {}
+
+conky.config = {
+  --
+  background = false,
+  -- Use double buffering (eliminates flickering)
+  double_buffer = true,
+  -- Update interval in seconds
+  update_interval = 1,
+  -- Number of samples to take for CPU and network readings
+  cpu_avg_samples = 1,
+  net_avg_samples = 1,
+  draw_graph_borders = true,
+  border_width = 2,
+  -- Use Xft (anti-aliased font and stuff)
+  use_xft = true,
+  font = 'mono:regular:size=0',
+  font1 = 'Hack:regular:size=9',
+  font2 = 'mono:bold:size=9',
+  -- font1 = 'mono:regular:size=11',
+  -- font2 = 'Hack:bold:size=20',
+  -- font3 = 'Hack:regular:size=0',
+  -- font = 'DejaVu Sans:bold:size=9',
+  xftalpha = 1.0,
+  -- Prevent text from moving around while using a mono font
+  use_spacer = 'right',
+  -- Default color and border settings
+  default_color = 'white',
+  default_shade_color = 'white',
+  default_outline_color = 'white',
+  color2 = '#ffffff',
+  color4 = 'yellow',
+  color8 = '#77ccff',
+  color9 = 'magenta',
+  draw_shades = false,
+  draw_outline = false,
+  draw_borders = true,
+
+  -- own_window = true,
+  -- own_window_type = 'normal',
+  -- own_window_transparent = true,
+  -- own_window = true,
+
+  own_window = true,
+  own_window_type = 'normal',
+  own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+  own_window_transparent = false,
+  own_window_argb_visual = true,
+  own_window_argb_value = 150,
+
+  alignment = 'bottom_middle',
+  -- alignment = 'top_middle',
+  -- alignment = 'middle_middle',
+  --
+  gap_x = 0,
+  gap_y = 10,
+}
+
+conky.text = [[
+${alignc}${font1}Hola${font}
+${alignc}${font1}${mem} ${memfree} ${membar}${font}
+${font1}${pa_card_name}${font}
+${font1}${password}${font}
+${font1}${hr}${font}
+${font1}${addr eth0}${font}
+${font1}${buffers}--${cached}${font}
+${offset 0}${voffset 0}${font1}${cpubar cpu0 10,266} ${cpu cpu0}%${font}
+${offset 0}${font1}${cpugraph 45,310 000000 ff00ff -t}${font}
+${offset 0}${voffset -55}
+${offset 320}${voffset -15}${font1}  Disk usage o algo así${font}
+${offset 320}${voffset 0}${font1}${diskiograph_read 20,240 ffff00 ffff00}${voffset 10}${diskio_read}${font}
+${offset 320}${voffset -20}${font1}${diskiograph_write 20,240 ff0000 ff0000}${voffset 10}${diskio_write}${font}
+${offset 320}${voffset -65}
+${offset 640}${voffset -15}${font1}${addr eth0}${font}
+${offset 640}${voffset 0}${font1}${upspeedgraph eth0 20,240 ffff00 ffff00}${voffset 10}${upspeed eth0}${font}
+${offset 640}${voffset -20}${font1}${downspeedgraph eth0 20,240 ff0000 ff0000}${voffset 10}${downspeed eth0}${font}
+${offset 640}${voffset -85}
+${offset 960}${voffset 6}${font1}${membar 10,155}   ${mem}/${memfree}${font}
+${offset 960}${voffset 0}${font1}${memgraph 45,310 000000 00ff00 -t}${voffset 10}${font}
+${offset 960}${voffset -150}
+]]
