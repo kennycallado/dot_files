@@ -11,6 +11,7 @@ source_bash_dir() {
   BASH_CONFIG_DIR="$XDG_CONFIG_HOME/bash/"
 
   if [ -d $BASH_CONFIG_DIR ]; then
+    # it needs an specific order to work fine
     for file in "$BASH_CONFIG_DIR"/*; do
       if [ -f "$file" ]; then
         # if [ "$file" == "$BASH_CONFIG_DIR/prompt.sh" ]; then continue; fi
