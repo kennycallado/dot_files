@@ -8,6 +8,10 @@
 
 # function to source all the files in a directory
 source_bash_dir() {
+  if [ -z "$XDG_CONFIG_HOME" ]; then
+    XDG_CONFIG_HOME="$HOME/.config"
+  fi
+
   BASH_CONFIG_DIR="$XDG_CONFIG_HOME/bash/"
 
   if [ -d $BASH_CONFIG_DIR ]; then
