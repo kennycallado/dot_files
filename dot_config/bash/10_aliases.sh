@@ -9,6 +9,7 @@ alias lf=joshuto
 # alias js=joshuto # I don't know if its a conflict with javascript in any way
 
 # Kitty
+alias kysd="nohup kitty --session session-dev > /dev/null 2>&1 & exit"
 alias ktitle="kitty @ set-tab-title"
  
 # Examples using docker
