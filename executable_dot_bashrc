@@ -6,6 +6,9 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+## Check dependencies
+# debería tener una función que verifique que las dependencias estén instaladas
+
 # function to source all the files in a directory
 source_bash_dir() {
   if [ -z "$XDG_CONFIG_HOME" ]; then
@@ -26,10 +29,6 @@ source_bash_dir() {
     echo "There is no default bash directory: $HOME/.config/bash"
   fi
 }
-
-## Check dependencies
-# debería tener una función que verifique que las dependencias estén instaladas
-
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
@@ -54,34 +53,3 @@ shopt -s checkwinsize
 LESS="-R -i"
 
 source_bash_dir
-
-# ## All about promp
-# if [ -f "$HOME/.config/bash/prompt.sh" ]; then
-#     . "$HOME/.config/bash/prompt.sh"
-# else
-#   echo "Deberia poner una alternativa básica para el prompt"
-# fi
-
-# ## All about aliases
-# # You may want to put all your additions into a separate file $HOME/.config/bash/aliases.sh
-# if [ -f "$HOME/.config/bash/aliases.sh" ]; then
-#     . "$HOME/.config/bash/aliases.sh"
-# else
-#   echo "Deberia poner una alternativa básica para los alias"
-# fi
-
-# ## All about integratios
-# # Autocompletion for example
-# if [ -f "$HOME/.config/bash/integratios.sh" ]; then
-#     . "$HOME/.config/bash/integratios.sh"
-# else
-#   echo "Deberia poner una alternativa básica para integratios"
-# fi
-
-# ## All about the PATH
-# if [ -f "$HOME/.config/bash/path.sh" ]; then
-#     . "$HOME/.config/bash/path.sh"
-# else
-#   echo "Deberia poner una alternativa básica para path"
-# fi
-
