@@ -17,13 +17,13 @@ if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integr
 # END_KITTY_SHELL_INTEGRATION
 
 ## Chezmoi
-# if [ "chezmoi --version > /dev/null 2>&1" ]; then
-#   source <(chezmoi completion bash)
-# fi
+if [ -n "$(chezmoi --version 2>/dev/null)" ]; then
+  source <(chezmoi completion bash)
+fi
 
 ## Ng
 # check if the ng command exists
-# if [ "ng version > /dev/null 2>&1" ]; then
+if [ -n "$(ng version 2>/dev/null)" ]; then
 #   # Load Angular CLI autocompletion.
-#   source <(ng completion script)
-# fi
+  source <(ng completion script)
+fi

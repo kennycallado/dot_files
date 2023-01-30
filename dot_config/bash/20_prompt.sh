@@ -12,7 +12,7 @@ case "$TERM" in
 esac
 
 ## Starship
-if [ -n "$(starship --version /dev/null 2>1&)" ]; then
+if [ -n "$(starship --version 2>/dev/null)" ]; then
     eval "$(starship init bash)"
 else
 
