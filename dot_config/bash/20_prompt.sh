@@ -12,7 +12,7 @@ case "$TERM" in
 esac
 
 ## Starship
-if [ "starship --version > /dev/null 2>&1" ]; then
+if [ -n "$(starship --version 2>/dev/null)" ]; then
     eval "$(starship init bash)"
 else
 
@@ -23,7 +23,7 @@ else
   fi
   unset color_prompt force_color_prompt
 
-  If this is an xterm set the title to user@host:dir
+  # If this is an xterm set the title to user@host:dir
   case "$TERM" in
   xterm*|rxvt*)
       PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
