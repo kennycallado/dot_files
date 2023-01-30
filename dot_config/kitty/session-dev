@@ -1,0 +1,14 @@
+# working tab
+new_tab working
+cd $PWD
+launch lvim .
+launch lf
+launch
+layout tall
+enabled_layouts tall:bias=70;full_size=1
+
+# server tab
+new_tab server
+layout tall
+launch bash
+launch
