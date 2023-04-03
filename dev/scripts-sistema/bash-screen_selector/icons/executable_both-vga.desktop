@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Both vga
+Icon=edit-copy-symbolic
+Exec=xrandr --output VGA-1 --auto --output HDMI-1 --primary --auto --right-of VGA-1
+Type=Application

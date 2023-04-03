@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Both edp
+Icon=edit-copy-symbolic
+Exec=xrandr --output eDP-1 --auto --output HDMI-1 --primary --auto --left-of eDP-1
+Type=Application
