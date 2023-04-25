@@ -138,7 +138,6 @@ lvim.builtin.treesitter.auto_install = true
 
 -- Copilot Config - OPTION 2
 lvim.plugins = {
-  { "yuratomo/w3m.vim" },
   { "github/copilot.vim" },
   -- ChatGPT
   -- { "jackMort/ChatGPT.nvim",
@@ -158,7 +157,7 @@ lvim.plugins = {
   --  rest.nvim
   {
     "rest-nvim/rest.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
+    dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       require("rest-nvim").setup({
         -- Open request results in a horizontal split
