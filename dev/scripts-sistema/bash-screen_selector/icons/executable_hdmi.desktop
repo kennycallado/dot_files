@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=HDMI
-Icon=video-display
-Exec=xrandr --output VGA-1 --off --output HDMI-1 --auto
+Name=VGA
+Icon=laptop
+Exec=xrandr --output VGA-1 --auto --output HDMI-1 --off
 Type=Application
