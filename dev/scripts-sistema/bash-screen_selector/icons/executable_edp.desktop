@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=eDP
+Icon=laptop
+Exec=xrandr --output eDP-1 --auto --output HDMI-1 --off
+Type=Application

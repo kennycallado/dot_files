@@ -1,0 +1,5 @@
+# Fichero que debe estar en: /etc/udev/rules.d/<99-hotplug.rules>
+#
+# Sería más correcto que apuntara hacia /etc o /usr o algo así no?
+#
+SUBSYSTEM=="drm", ACTION=="change", RUN+="/bin/bash /home/kenny/dev/scripts-sistema/detect-unpplug.sh"

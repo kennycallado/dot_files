@@ -2,7 +2,6 @@
  THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
  `lvim` is the global options object
 ]]
-
 -- vim options
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
@@ -11,7 +10,7 @@ vim.opt.spelllang = "es"
 vim.opt.scrolloff = 4
 
 -- no sé si es correcto
-vim.g.rust_recommended_style = 0
+-- vim.g.rust_recommended_style = 0
 
 -- general
 lvim.log.level = "info"
@@ -22,7 +21,6 @@ lvim.format_on_save = {
 }
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
-lvim.transparent_window = true
 
 -- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
 lvim.leader = "space"
@@ -38,7 +36,10 @@ lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
 -- -- Change theme settings
--- lvim.colorscheme = "lunar"
+lvim.transparent_window = true
+lvim.colorscheme = "lunar"
+-- vim.opt.background = "dark"
+-- lvim.colorscheme = "tokyonight-day"
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerSync
 lvim.builtin.alpha.active = true
@@ -154,8 +155,9 @@ lvim.plugins = {
   --     "nvim-telescope/telescope.nvim"
   --   } }
   --  rest.nvim
-  { "rest-nvim/rest.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
+  {
+    "rest-nvim/rest.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       require("rest-nvim").setup({
         -- Open request results in a horizontal split
