@@ -116,7 +116,7 @@ handle_extension() {
             exiftool "${FILE_PATH}" && exit 5
             ;; # Continue with next handler on failure
         sh|*)
-            batcat --paging=never -l sh --style=plain --line-range :500 -- "${FILE_PATH}" && exit 5
+            batcat --paging=never -l sh --style=snip --color=always --line-range :200 -- "${FILE_PATH}" && exit 5
             ;; # Continue with next handler on failure
     esac
 }
@@ -303,14 +303,7 @@ handle_mime() {
 
         ## Text
         text/plain)
-            batcat --paging=never --style=plain --line-range :500 -- "${FILE_PATH}" && exit 5
-            # if [ "${FILE_EXTENSION_LOWER}"]; then
-            #   batcat -l "${FILE_EXTENSION_LOWER}" -- "${FILE_PATH}"
-            # else
-            #   batcat -- "${FILE_PATH}"
-            # fi
-            # bat --paging=never -- "${FILE_PATH}"
-            # kitty +kitten icat --detection-timeout=1 --silent -- "/home/kenny/Imágenes/wallhaven-r7532q_1920x1080.png" &
+            batcat --paging=never -l sh --style=snip --color=always --line-range :200 -- "${FILE_PATH}" && exit 5
             ;;
         text/* | */xml)
             ## Syntax highlight
