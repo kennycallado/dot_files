@@ -15,7 +15,7 @@
 
 ### User personal key bindings
 key "Super+w" firefox
-key "Super+t" ~/.local/bin/kitty
+key "Super+t" kitty
 key "Super+f" zzzfm
 key "Super+m" ~/dev/scripts-sistema/bash-screen_selector/selector.sh
 key "Super+p" ~/dev/scripts-sistema/toggle-touch.sh
