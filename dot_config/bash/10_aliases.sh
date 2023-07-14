@@ -11,6 +11,7 @@ alias lf=joshuto
 # Kitty
 alias kysd="nohup kitty --session session-dev > /dev/null 2>&1 & exit"
 alias ktitle="kitty @ set-tab-title"
+alias kssh="kitty +kitten ssh"
  
 # Examples using docker
 alias drhw="docker run --rm hello-world"
