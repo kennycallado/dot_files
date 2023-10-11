@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
-local color_1 = "#f0f"
+local color_1 = "#c0c0c0"
 local color_2 = "#f0f"
 
 local config = {}
@@ -154,34 +154,79 @@ config.key_tables = {
 config.use_fancy_tab_bar = false
 config.status_update_interval = 1000
 config.tab_bar_at_bottom = false
+config.colors = {
+  tab_bar = {
+    background = "#0b0022",
+    active_tab = {
+      bg_color = "#2b2042",
+      fg_color = "#c0c0c0",
+      intensity = "Bold",
+      italic = false,
+      strikethrough = false,
+    },
+    inactive_tab = {
+      bg_color = "#1b1032",
+      fg_color = "#808080",
+      intensity = "Normal",
+      underline = "None",
+      italic = true,
+      strikethrough = false,
+    },
+    inactive_tab_hover = {
+      bg_color = "#1b1032",
+      fg_color = "#808080",
+      intensity = "Normal",
+      underline = "None",
+      italic = false,
+      strikethrough = false,
+    },
+  }
+}
+
 wezterm.on("update-status", function(window, pane)
   -- Workspace name
-  local stat = window:active_workspace()
-  -- local stat_color = "#f7768e"
-  local stat_color = color_1
+  -- local stat = window:active_workspace()
+  local stat = wezterm.nerdfonts.oct_table
+  local stat_color = color_2
   -- It's a little silly to have workspace name all the time
   -- Utilize this to display LDR or current key table name
+  --
   if window:active_key_table() then
-    stat = window:active_key_table()
-    stat_color = "#7dcfff"
-  end
-  if window:leader_is_active() then
-    stat = "LDR"
-    -- stat_color = "#bb9af7"
+    stat = wezterm.nerdfonts.md_folder
     stat_color = color_2
   end
+  --
+  if window:leader_is_active() then
+    stat = wezterm.nerdfonts.md_lead_pencil
+    stat_color = color_2
+  end
+  --
 
-  -- Current working directory
-  local basename = function(s)
+  -- Current Foreground Process Name
+  local cmd_basename = function(s)
     -- Nothing a little regex can't fix
     return string.gsub(s, "(.*[/\\])(.*)", "%2")
   end
-  -- CWD and CMD could be nil (e.g. viewing log using Ctrl-Alt-l). Not a big deal, but check in case
+
+  -- Current working directory
+  local cwd_basename = function(s)
+    local blah = string.gsub(s, "(.*:[/\\])(.*[/\\])(.*)/$", "%3")
+    -- because of joshut... I don't know why
+    if string.find(blah, "^file*") then
+      wezterm.log_error(string.gsub(s, "(.*:[/\\])(.*[/\\])(.*)", "%3"))
+      blah = string.gsub(s, "(.*:[/\\])(.*[/\\])(.*)", "%3")
+    end
+    --
+    return blah
+  end
+
+  -- Current directory
   local cwd = pane:get_current_working_dir()
-  cwd = cwd and basename(cwd) or ""
+  cwd = cwd and cwd_basename(cwd) or ""
+
   -- Current command
   local cmd = pane:get_foreground_process_name()
-  cmd = cmd and basename(cmd) or ""
+  cmd = cmd and cmd_basename(cmd) or ""
 
   -- Time
   local time = wezterm.strftime("%H:%M")
@@ -189,9 +234,12 @@ wezterm.on("update-status", function(window, pane)
   -- Left status (left of the tab line)
   window:set_left_status(wezterm.format({
     { Foreground = { Color = stat_color } },
-    { Text = "  " },
-    { Text = wezterm.nerdfonts.oct_table .. "  " .. stat },
+    { Text = " " },
+    { Text = stat .. "  " },
     "ResetAttributes",
+    { Foreground = { Color = color_1 } },
+    { Text = window:active_workspace() },
+    { Foreground = { Color = stat_color } },
     { Text = " |" }
   }))
 
@@ -199,11 +247,16 @@ wezterm.on("update-status", function(window, pane)
   window:set_right_status(wezterm.format({
     -- Wezterm has a built-in nerd fonts
     -- https://wezfurlong.org/wezterm/config/lua/wezterm/nerdfonts.html
+    { Foreground = { Color = color_1 } },
     { Text = wezterm.nerdfonts.md_folder .. "  " .. cwd },
     { Text = " | " },
     -- { Foreground = { Color = "#e0af68" } },
-    { Foreground = { Color = color_1 } },
-    { Text = wezterm.nerdfonts.fa_code .. "  " .. cmd },
+    { Foreground = { Color = stat_color } },
+    { Text = wezterm.nerdfonts.fa_code .. "  " },
+    "ResetAttributes",
+    { Text = cmd },
+    -- "ResetAttributes",
+    -- { Text = wezterm.nerdfonts.fa_code .. "  " .. cmd },
     "ResetAttributes",
     { Text = " | " },
     { Text = wezterm.nerdfonts.md_clock .. "  " .. time },
