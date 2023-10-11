@@ -6,7 +6,10 @@
 
 # Set the default editor
 if [ "lvim --version" ]; then
-  EDITOR="lvim"
+  export EDITOR="lvim"
 elif [ "nvim --version" ]; then
-  EDITOR="nvim"
+  export EDITOR="nvim"
 fi
+
+# bun
+export BUN_INSTALL="$HOME/.bun"

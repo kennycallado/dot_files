@@ -25,5 +25,8 @@ is_in_path "$HOME/.local/bin" || export PATH="$PATH:$HOME/.local/bin"
 # Npm
 is_in_path "$HOME/.npm-global/bin" || export PATH="$PATH:$HOME/.npm-global/bin"
 
+# Bun
+is_in_path "$HOME/.bun/bin" || export PATH="$PATH:$HOME/.bin/bin"
+
 # Cargo
 . "$HOME/.cargo/env"
