@@ -20,6 +20,7 @@ config.adjust_window_size_when_changing_font_size = false
 -- config.color_scheme = "Violet Dark"
 --
 -- config.color_scheme = "Argonaut"
+config.color_scheme = "Abernathy"
 --
 -- config.color_scheme = "Atelier Seaside Light (base16)"
 -- config.color_scheme = "Atelier Seaside (base16)"
@@ -46,7 +47,7 @@ config.adjust_window_size_when_changing_font_size = false
 -- De momento el mejor!
 -- config.color_scheme = 'Galizur'
 --
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.8
 config.window_decorations = "NONE"
 config.window_close_confirmation = "AlwaysPrompt"
 -- config.default_workspace = "main"
