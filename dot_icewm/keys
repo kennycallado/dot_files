@@ -15,6 +15,7 @@
 
 ### User personal key bindings
 key "Super+w" firefox
+key "Super+l" luakit
 key "Super+t" wezterm
 key "Super+f" zzzfm
 key "Super+m" ~/dev/scripts-sistema/bash-screen_selector/selector.sh
