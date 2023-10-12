@@ -151,6 +151,7 @@ config.key_tables = {
 
 -- Tab bar
 -- I don't like the look of "fancy" tab bar
+config.show_new_tab_button_in_tab_bar = false
 config.use_fancy_tab_bar = false
 config.status_update_interval = 1000
 config.tab_bar_at_bottom = false
