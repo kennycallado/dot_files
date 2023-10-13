@@ -214,24 +214,26 @@ wezterm.on("update-status", function(window, pane)
   end
 
   -- Current working directory
-  local cwd_basename = function(s)
-    local blah = string.gsub(s, "(.*:[/\\])(.*[/\\])(.*)/$", "%3")
-    -- because of joshut... I don't know why
-    if string.find(blah, "^file*") then
-      wezterm.log_error(string.gsub(s, "(.*:[/\\])(.*[/\\])(.*)", "%3"))
-      blah = string.gsub(s, "(.*:[/\\])(.*[/\\])(.*)", "%3")
+  local cwd_basename = function (s, cmd)
+    local blah = "";
+    if cmd == "joshuto" then
+      -- Don't know why I have read that the route should also introduce the hostname
+      blah = string.gsub(s.path, "(.*[/\\])(.*[/\\])(.*)", "%3")
+    else
+      blah = string.gsub(s.path, "(.*[/\\])(.*[/\\])(.*)", "%2")
     end
-    --
     return blah
+    -- return blah
+    -- local blah = string.gsub(s, "(.*:[/\\])(.*[/\\])(.*)", "%3")
   end
-
-  -- Current directory
-  local cwd = pane:get_current_working_dir()
-  cwd = cwd and cwd_basename(cwd) or ""
 
   -- Current command
   local cmd = pane:get_foreground_process_name()
   cmd = cmd and cmd_basename(cmd) or ""
+
+  -- Current directory
+  local cwd = pane:get_current_working_dir()
+  cwd = cwd and cwd_basename(cwd, cmd) or ""
 
   -- Time
   local time = wezterm.strftime("%H:%M")
