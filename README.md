@@ -5,8 +5,8 @@
 ## Instalación chezmoi
 
 ``` bash
-sudo apt install -y git && \
-sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin init --apply kennycallado/dot_files && \
+apt install -y git curl && bash -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin init --apply kennycallado/dot_files && \
+source $HOME/.bashrc && \
 $HOME/.local/bin/chezmoi cd && \
 git remote set-url origin git@github.com:kennycallado/dot_files.git && \
 exit
@@ -21,20 +21,21 @@ Debido a la existencia de algunos ficheros cifrados es necesario usar un key. Es
 ### base
 
 ``` bash
-sudo apt install curl zathura fonts-noto-color-emoji i3lock-fancy poppler-utils xclip fzf pulseaudio build-essential bat ripgrep conky-std
+sudo apt install git curl luakit picom zathura fonts-noto-color-emoji i3lock-fancy poppler-utils xclip fzf pulseaudio build-essential bat ripgrep conky-std jq tidy
 ```
 
 ### dudas
 
 ``` bash
-sudo apt install picom w3m nodejs npm
+sudo apt install w3m droopy
 ```
+
+droopy: compartir ficheros http
 
 ### wezterm
 
 ``` bash
-curl -LO https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly.Debian12.deb
-sudo apt install -y ./wezterm-nightly.Debian12.deb
+curl -LO https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly.Debian12.deb && sudo apt install -y ./wezterm-nightly.Debian12.deb
 ```
 
 ### joshuto
@@ -46,7 +47,7 @@ REPO="kennycallado/joshuto" bash <(curl -s https://raw.githubusercontent.com/kam
 ### starship
 
 ``` bash
-curl -sS https://starship.rs/install.sh | sh
+sudo curl -sS https://starship.rs/install.sh | sh
 ```
 
 ### firefox
@@ -55,10 +56,22 @@ curl -sS https://starship.rs/install.sh | sh
 sudo apt install firefox firefox-l10n-xpi-es-es
 ```
 
+### rust
+
+``` bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+### node
+
+``` bash
+sudo apt install nodejs npm
+```
+
 ### neovim y lunarvim
 
 ``` bash
-sudo apt install python3-pip python3-setuptools python3-wheel python3-neovim
+sudo apt install python3-pynvim
 
 bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/rolling/utils/installer/install-neovim-from-release)
 
@@ -73,7 +86,6 @@ chezmoi update
 
 ###  podman
 
-I'll  get it a try...
 
 ``` bash
 sudo apt install podman podman-compose
@@ -96,12 +108,12 @@ Edit  /etc/containers/registries.conf
 registries = ['docker.io']
 ```
 
-### crosscompiling
+#### crosscompiling
 
 I think is useful
 
 ``` bash
-sudo apt install qemu-user-static
+sudo apt install qemu-user-static binfmt-support
 ```
 
 - sometime in the past I had to install `qemu-user-binfmt` and then reinstall `qemu-user-static`
