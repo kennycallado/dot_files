@@ -89,6 +89,13 @@ I have tried (I don't know if it's needed):
 echo rc_cgroup_mode=unified > /etc/rc.conf
 ```
 
+Edit  /etc/containers/registries.conf
+
+```
+[registries.search]
+registries = ['docker.io']
+```
+
 ### crosscompiling
 
 I think is useful
