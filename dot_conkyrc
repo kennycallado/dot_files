@@ -1,5 +1,9 @@
-conky = {}
+--
+-- move it to ~/.conkyrc
+-- requires `sudo apt install conky-std`
+--
 
+conky = {}
 conky.config = {
   --
   background = false,
@@ -58,24 +62,19 @@ conky.config = {
 
 conky.text = [[
 ${alignc}${font1}Hola${font}
-${alignc}${font1}${mem} ${memfree} ${membar}${font}
-${font1}${pa_card_name}${font}
-${font1}${password}${font}
 ${font1}${hr}${font}
-${font1}${addr eth0}${font}
-${font1}${buffers}--${cached}${font}
-${offset 0}${voffset 0}${font1}${cpubar cpu0 10,266} ${cpu cpu0}%${font}
+${offset 0}${voffset 0}${font1}${cpubar cpu0 10,280} ${cpu cpu0}%${font}
 ${offset 0}${font1}${cpugraph 45,310 000000 ff00ff -t}${font}
-${offset 0}${voffset -55}
+${offset 0}${voffset -50}
 ${offset 320}${voffset -15}${font1}  Disk usage o algo así${font}
 ${offset 320}${voffset 0}${font1}${diskiograph_read 20,240 ffff00 ffff00}${voffset 10}${diskio_read}${font}
 ${offset 320}${voffset -20}${font1}${diskiograph_write 20,240 ff0000 ff0000}${voffset 10}${diskio_write}${font}
-${offset 320}${voffset -65}
-${offset 640}${voffset -15}${font1}${addr eth0}${font}
-${offset 640}${voffset 0}${font1}${upspeedgraph eth0 20,240 ffff00 ffff00}${voffset 10}${upspeed eth0}${font}
-${offset 640}${voffset -20}${font1}${downspeedgraph eth0 20,240 ff0000 ff0000}${voffset 10}${downspeed eth0}${font}
-${offset 640}${voffset -85}
-${offset 960}${voffset 6}${font1}${membar 10,155}   ${mem}/${memfree}${font}
-${offset 960}${voffset 0}${font1}${memgraph 45,310 000000 00ff00 -t}${voffset 10}${font}
-${offset 960}${voffset -150}
+${offset 320}${voffset -62}
+${offset 640}${voffset -15}${font1}${addr wlan0}${font}
+${offset 640}${voffset 0}${font1}${upspeedgraph eth0 20,240 ffff00 ffff00}${voffset 10}${upspeed wlan0}${font}
+${offset 640}${voffset -20}${font1}${downspeedgraph eth0 20,240 ff0000 ff0000}${voffset 10}${downspeed wlan0}${font}
+${offset 640}${voffset -86}
+${offset 960}${voffset 6}${font1}${membar 10,250}   ${mem}${font}
+${offset 960}${voffset 1}${font1}${memgraph 45,310 000000 00ff00 -t}${voffset 10}${font}
+${offset 960}${voffset -115}
 ]]
