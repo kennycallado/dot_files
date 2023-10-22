@@ -1,8 +1,3 @@
---
--- move it to ~/.conkyrc
--- requires `sudo apt install conky-std`
---
-
 conky = {}
 conky.config = {
   --
@@ -40,13 +35,8 @@ conky.config = {
   draw_outline = false,
   draw_borders = true,
 
-  -- own_window = true,
-  -- own_window_type = 'normal',
-  -- own_window_transparent = true,
-  -- own_window = true,
-
   own_window = true,
-  own_window_type = 'normal',
+  own_window_type = 'desktop',
   own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
   own_window_transparent = false,
   own_window_argb_visual = true,
@@ -71,8 +61,8 @@ ${offset 320}${voffset 0}${font1}${diskiograph_read 20,240 ffff00 ffff00}${voffs
 ${offset 320}${voffset -20}${font1}${diskiograph_write 20,240 ff0000 ff0000}${voffset 10}${diskio_write}${font}
 ${offset 320}${voffset -62}
 ${offset 640}${voffset -15}${font1}${addr wlan0}${font}
-${offset 640}${voffset 0}${font1}${upspeedgraph eth0 20,240 ffff00 ffff00}${voffset 10}${upspeed wlan0}${font}
-${offset 640}${voffset -20}${font1}${downspeedgraph eth0 20,240 ff0000 ff0000}${voffset 10}${downspeed wlan0}${font}
+${offset 640}${voffset 0}${font1}${upspeedgraph wlan0 20,240 ffff00 ffff00}${voffset 10}${upspeed wlan0}${font}
+${offset 640}${voffset -20}${font1}${downspeedgraph wlan0 20,240 ff0000 ff0000}${voffset 10}${downspeed wlan0}${font}
 ${offset 640}${voffset -86}
 ${offset 960}${voffset 6}${font1}${membar 10,250}   ${mem}${font}
 ${offset 960}${voffset 1}${font1}${memgraph 45,310 000000 00ff00 -t}${voffset 10}${font}
