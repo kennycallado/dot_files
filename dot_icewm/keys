@@ -17,6 +17,7 @@
 key "Super+w" firefox
 key "Super+l" luakit
 key "Super+t" wezterm
+key "Super+Shift+t" ~/dev/scripts-sistema/wezterm-ssh.sh
 key "Super+f" zzzfm
 key "Super+m" ~/dev/scripts-sistema/bash-screen_selector/selector.sh
 key "Super+p" ~/dev/scripts-sistema/toggle-touch.sh
