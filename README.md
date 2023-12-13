@@ -92,7 +92,7 @@ sudo apt install podman podman-compose
 ```
 
 ``` bash
-sudo apt install cgroupfs-mount uidmap slirp4netns
+sudo apt install cgroupfs-mount uidmap slirp4netns fuse-overlayfs
 ```
 
 I have tried (I don't know if it's needed):
