@@ -41,7 +41,7 @@ curl -LO https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightl
 ### joshuto
 
 ``` bash
-REPO="kennycallado/joshuto" bash <(curl -s https://raw.githubusercontent.com/kamiyaa/joshuto/master/utils/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/kamiyaa/joshuto/master/utils/install.sh)
 ```
 
 ### starship
@@ -95,17 +95,17 @@ sudo apt install podman podman-compose
 sudo apt install cgroupfs-mount uidmap slirp4netns fuse-overlayfs
 ```
 
-I have tried (I don't know if it's needed):
-
-``` bash
-echo rc_cgroup_mode=unified > /etc/rc.conf
-```
-
 Edit  /etc/containers/registries.conf
 
 ```
 [registries.search]
 registries = ['docker.io']
+```
+
+I have tried (I don't know if it's needed):
+
+``` bash
+echo rc_cgroup_mode=unified > /etc/rc.conf
 ```
 
 #### crosscompiling
