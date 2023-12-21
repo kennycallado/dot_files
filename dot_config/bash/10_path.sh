@@ -29,4 +29,4 @@ is_in_path "$HOME/.npm-global/bin" || export PATH="$PATH:$HOME/.npm-global/bin"
 is_in_path "$HOME/.bun/bin" || export PATH="$PATH:$HOME/.bun/bin"
 
 # Cargo
-. "$HOME/.cargo/env"
+is_in_path "$HOME/.cargo/env" || export PATH="$PATH:$HOME/.cargo/env"
