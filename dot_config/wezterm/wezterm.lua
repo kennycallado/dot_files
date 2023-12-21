@@ -37,7 +37,7 @@ config.color_scheme = "Abernathy"
 -- config.color_scheme = 'Elio (Gogh)'
 
 -- Window
-config.window_background_opacity = 0.8
+config.window_background_opacity = 0.7
 config.window_decorations = "NONE"
 config.window_close_confirmation = "AlwaysPrompt"
 config.window_padding = { left = 0, right = 0, top = 2, bottom = 2 }
@@ -49,7 +49,8 @@ config.inactive_pane_hsb = {
 }
 
 -- Keys
-config.leader = { key = "k", mods = "CTRL", timeout_milliseconds = 1000 }
+-- config.leader = { key = "k", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "l", mods = "ALT", timeout_milliseconds = 1000 }
 config.keys = {
   -- Send C-a when pressing C-a twice
   -- { key = "a",          mods = "LEADER|CTRL", action = act.SendKey { key = "a", mods = "CTRL" } },
@@ -214,7 +215,7 @@ wezterm.on("update-status", function(window, pane)
   end
 
   -- Current working directory
-  local cwd_basename = function (s, cmd)
+  local cwd_basename = function(s, cmd)
     local blah = "";
     if cmd == "joshuto" then
       -- Don't know why I have read that the route should also introduce the hostname
