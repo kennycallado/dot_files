@@ -5,11 +5,11 @@
 ## Instalación chezmoi
 
 ``` bash
-apt install -y git curl && bash -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin init --apply kennycallado/dot_files && \
-source $HOME/.bashrc && \
+sudo apt install -y git curl && bash -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin init --apply kennycallado/dot_files && \
 $HOME/.local/bin/chezmoi cd && \
 git remote set-url origin git@github.com:kennycallado/dot_files.git && \
-exit
+exit && \
+source $HOME/.bashrc
 ```
 
 ### key
@@ -67,6 +67,12 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ``` bash
 sudo apt install nodejs npm
 ```
+#### Configurar node npm
+
+``` bash
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
+```
 
 ### neovim y lunarvim
 
@@ -78,17 +84,25 @@ bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/rolling/utils
 LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 ```
 
+#### After install
+
+For some reason there is a problem that the lsp keeps inactive
+
+``` bash
+lvim --headless +LvimCacheReset +q
+```
+
 Quizá antes de entrar y que se intalen los paquetes devolver la configuración
 
 ``` bash
 chezmoi update
 ```
-
 ###  podman
 
 
+
 ``` bash
-sudo apt install podman podman-compose
+sudo apt install --install-recommends podman podman-compose
 ```
 
 ``` bash
@@ -102,15 +116,7 @@ Edit  /etc/containers/registries.conf
 registries = ['docker.io']
 ```
 
-I have tried (I don't know if it's needed):
-
-``` bash
-echo rc_cgroup_mode=unified > /etc/rc.conf
-```
-
 #### crosscompiling
-
-I think is useful
 
 ``` bash
 sudo apt install qemu-user-static binfmt-support
