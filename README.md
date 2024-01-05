@@ -1,5 +1,9 @@
 # My dot files
 
+## NOTE:
+
+- nix apps as root: `sudo $(which nvim) <command>`
+
 ## Dependencies
 
 ## Instalación chezmoi
